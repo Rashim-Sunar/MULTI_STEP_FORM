@@ -22,7 +22,7 @@ const StepperControl = ({handleClick, currentStep, steps}) => {
              hover:bg-slate-800 hover:text-white drop-shadow-md transition duration-200
              ease-in-out"
         >
-          {currentStep === steps.length ? "Confirm" :" Next"}
+          {currentStep === steps.length-1 ? "Confirm" :" Next"}
         </button>
       </div>
     </div>
