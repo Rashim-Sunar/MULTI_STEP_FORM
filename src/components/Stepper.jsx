@@ -18,6 +18,7 @@ const Stepper = ({steps, currentStep}) => {
                     completed: true,
                 };
                 count++;
+
             }
             //Step completed....
             else if(count < stepNumber){
@@ -40,8 +41,8 @@ const Stepper = ({steps, currentStep}) => {
                 count++;
             }
 
-            return newSteps;
         }
+        return newSteps;
     }
 
     useEffect(()=>{
@@ -68,22 +69,26 @@ const Stepper = ({steps, currentStep}) => {
           <div className="relative flex flex-col items-center text-teal-600">
             {/* Display Number  */}
             <div
-              className="p-2 px-4 font-semibold text-black rounded-full border -2 border-gray-300 bg-slate-400 
-                  transition duration-500 ease-in-out"
+              className={`p-2 px-4 font-semibold text-black rounded-full border -2 border-gray-300 
+                  transition duration-500 ease-in-out 
+                  ${step.selected ? "bg-green-600 border-green-600 text-white font-bold":""}`}
             >
-              {index+1}
+              {step.completed ? (
+                <span className="text-white font-bold text-xl">&#10003;</span>
+              ):(index+1)}
             </div>
             {/* Display Description  */}
             <div
-              className="absolute top-0 w-32 text-center text-xs
-                  mt-14 font-medium uppercase"
+              className={`absolute top-0 w-32 text-center text-xs
+                  mt-14 font-medium uppercase ${step.highlighted ? "text-gray-900":"text-gray-400"}`}
             >
               {step.description}
             </div>
           </div>
       
           {/* Display line  */}
-          <div className="flex-auto border-t-2"></div>
+          <div className={`flex-auto border-t-2 transition duration-500 ease-in-out
+          ${step.completed ? "border-green-600":"border-gray-300"}`}></div>
         </div>
        )
     });

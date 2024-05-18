@@ -31,16 +31,23 @@ function App() {
     }
   }
 
+  const handleClick = (direction) =>{
+    let newStep = currentStep;
+    //Check if the steps are within bouds
+    direction === "next" ? newStep++ : newStep--;
+    newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
+  }
+
   return (
     <div className='md:5/6 mx-auto shadow-xl rounded-2xl pb-2 bg-white'>
       {/* Stepper  */}
       <div className='container horizontal mt-5'>
         <Stepper steps={steps} currentStep={currentStep}/>
       </div>
-      {()=>dispalySteps(1)}
+  
       {/* Navigation controls  */}
       <div className=''>
-        <StepperControl/>
+        <StepperControl handleClick={handleClick} steps={steps} currentStep={currentStep}/>
       </div>
     </div>
   )
