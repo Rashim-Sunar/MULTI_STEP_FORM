@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { StepperContext } from './contexts/StepperContext'
 import Stepper from './components/Stepper'
 import StepperControl from './components/StepperControl'
 import Account from './components/steps/Account'
@@ -10,6 +11,8 @@ import Final from './components/steps/Final'
 
 function App() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [userData, setUserData] = useState('');
+  const [finalData, setFinalData] = useState([]);
 
   //Displayed as description in Stepper.jsx....
   const steps = [
@@ -18,7 +21,7 @@ function App() {
     "Complete"
   ];
 
-  const dispalySteps = (step) =>{
+  const dispalyStep = (step) =>{
     switch(step) {
       case 1:
         return <Account/>
@@ -43,6 +46,13 @@ function App() {
       {/* Stepper  */}
       <div className='container horizontal mt-5'>
         <Stepper steps={steps} currentStep={currentStep}/>
+
+        {/* Dispaly components  */}
+        <div className='my-10 p-10'>
+        <StepperContext.Provider value={{userData,setUserData, finalData, setFinalData}}>
+          {dispalyStep(currentStep)}
+        </StepperContext.Provider>
+        </div>
       </div>
   
       {/* Navigation controls  */}

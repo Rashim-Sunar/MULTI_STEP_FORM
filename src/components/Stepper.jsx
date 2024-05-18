@@ -13,7 +13,7 @@ const Stepper = ({steps, currentStep}) => {
             if(count===stepNumber){
                 newSteps[count] = {
                     ...newSteps[count],
-                    highlight:true,
+                    highlighted:true,
                     selected:true,
                     completed: true,
                 };
@@ -24,7 +24,7 @@ const Stepper = ({steps, currentStep}) => {
             else if(count < stepNumber){
                 newSteps[count] = {
                     ...newSteps[count],
-                    highlight: false,
+                    highlighted: false,
                     selected:true,
                     completed: true,
                 };
@@ -34,7 +34,7 @@ const Stepper = ({steps, currentStep}) => {
             else{
                 newSteps[count] = {
                     ...newSteps[count],
-                    highlight: false,
+                    highlighted: false,
                     selected:false,
                     completed: false,
                 };
@@ -51,7 +51,7 @@ const Stepper = ({steps, currentStep}) => {
             Object.assign({},{
                 description: step,
                 completed: false,
-                highlighted: index===0 ? true : false,
+                highlighted:false,
                 selected: index===0 ? true:false,
             })
         );
