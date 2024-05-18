@@ -29,7 +29,7 @@ function Detail() {
           City
         </div>
         <div className='bg-white my-2 p-1 flex border border-gray-200 rounded'>
-            <input type='password' onChange={handleChange} value={userData["city"] || ""}
+            <input type='text' onChange={handleChange} value={userData["city"] || ""}
             name='city' placeholder='City' className='p-1 px-2 appearance-none outline-none
             w-full text-gray-800'>
             </input>

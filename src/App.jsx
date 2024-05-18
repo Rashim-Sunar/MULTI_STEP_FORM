@@ -56,9 +56,13 @@ function App() {
       </div>
   
       {/* Navigation controls  */}
-      <div className=''>
-        <StepperControl handleClick={handleClick} steps={steps} currentStep={currentStep}/>
-      </div>
+      {
+        currentStep !== steps.length && (
+          <div className=''>
+          <StepperControl handleClick={handleClick} steps={steps} currentStep={currentStep}/>
+        </div>
+        )
+      }
     </div>
   )
 }
