@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    /* #1c1c1e -> Use this for dark theme */
+    background: #f1f5f9; 
+}
